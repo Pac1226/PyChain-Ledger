@@ -55,7 +55,7 @@ class Record:
 
     sender: str
     receiver: str
-    amount = float
+    amount: float
 
 
 ################################################################################
@@ -175,11 +175,11 @@ pychain = setup()
 
 # @TODO:
 # Add an input area where you can get a value for `sender` from the user.
-input_sender =st.number_input("Sender")
+input_sender =st.text_input("Sender")
 
 # @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-input_receiver =st.number_input("Receiver")
+input_receiver =st.text_input("Receiver")
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
@@ -194,7 +194,7 @@ if st.button("Add Block"):
     # which is set equal to a `Record` that contains the `sender`, `receiver`,
     # and `amount` values
     new_block = Block(
-        record=[input_sender, input_receiver, input_amount],
+        record = Record(input_sender, input_receiver, input_amount),
         creator_id=42,
         prev_hash=prev_block_hash
     )
